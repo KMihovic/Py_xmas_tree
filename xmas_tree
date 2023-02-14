@@ -1,0 +1,38 @@
+lines = int(input("Please enter number of Xmas Tree rows (from 0 to 100): "))
+
+header = input("Please enter header text: ")
+footer = input("Please enter footer text: ")
+
+left, right = lines, lines
+middle = 1
+
+print("\n", header, "\n")
+
+# Ukoliko korisnik odluci unijest brojeve 0-2__________________________________
+if lines == 0:
+    print("\n", footer, "\n")
+    exit()
+
+if lines == 1:
+    print("| * |")
+    print("\n", footer, "\n")
+    exit()
+
+if lines == 2:
+    print("| * |")
+    print("| * |")
+    print("\n", footer, "\n")
+    exit()
+# _____________________________________________________________________________
+
+print("|", " " * (left + 1), "*", " " * (right + 1), "|", sep="")
+
+for i in range(1, lines - 2):
+    print("|", " " * left, "*", " " * middle, "*", " " * right, "|", sep="")
+    left -= 1
+    right -= 1
+    middle += 2
+
+print("|", " " * left, "*" * (middle + 2), " " * right, "|", sep="")
+print("|", " " * (lines + 1), "*", " " * (lines + 1), "|", sep="")
+print("\n", footer, "\n")
